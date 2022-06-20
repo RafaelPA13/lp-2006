@@ -19,7 +19,8 @@
             <div class="col-md order-2">
                 <h3 class="text-center">Alterar</h3>
                 <form action="/alterar" method="post" class="form-control text-bg-dark">
-                    <input type="hidden" name="id" value="<%=id%>">
+                    <input type="hidden" name="id_u" value="<%=id%>">
+                    <input type="hidden" name="id_a" value="<%=alterar._id%>">
                     <input type="hidden" name="nome" value="<%=nome%>">
                     <label for="" class="form-control text-bg-secondary">Título da Atividade:</label> 
                     <input type="text" name="titulo" id="" class="form-control" value="<%=alterar.titulo%>">
@@ -27,34 +28,33 @@
                     <input type="date" name="data" id="" class="form-control" value="<%=alterar.data.toISOString().slice(0,10)%>">
                     <label for="" class="form-control text-bg-secondary">Tipo:</label>
                     <select name="tipo" id="" class="form-control">
-                        <option value="0">Selecione...</option>
-                        <option value="ac">AC</option>
-                        <option value="at">AT</option>
-                        <option value="rec">REC</option>
-                        <option value="exam">EXAME</option>
+                        <option value="0" <%=alterar.tipo=="0"?"selected":""%> >Selecione...</option>
+                        <option value="ac" <%=alterar.tipo=="ac"?"selected":""%> >AC</option>
+                        <option value="at" <%=alterar.tipo=="at"?"selected":""%> >AT</option>
+                        <option value="rec" <%=alterar.tipo=="rec"?"selected":""%> >REC</option>
+                        <option value="exam" <%=alterar.tipo=="exam"?"selected":""%> >EXAME</option>
                     </select>
                     <label for="" class="form-control text-bg-secondary">Disciplina:</label>
                     <select name="disciplina" id="" class="form-control">
-                        <option value="0">Selecione...</option>
-                        <option value="mat">Matemática</option>
-                        <option value="lp">Linguagem de Programação</option>
-                        <option value="bd">Banco de Dados</option>
-                        <option value="inw">Internet Webdesign</option>
+                        <option value="0" <%=alterar.disciplina=="0"?"selected":""%> >Selecione...</option>
+                        <option value="mat" <%=alterar.disciplina=="mat"?"selected":""%> >Matemática </option>
+                        <option value="lp" <%=alterar.disciplina=="lp"?"selected":""%> >Linguagem de Programação</option>
+                        <option value="bd" <%=alterar.disciplina=="bd"?"selected":""%> >Banco de Dados</option>
+                        <option value="inw" <%=alterar.disciplina=="inw"?"selected":""%> >Internet Webdesign</option>
                     </select>
                     <label for="" class="form-control text-bg-secondary">Formato de Entrega:</label>
                     <div>
-                        <input type="radio" value="Teams" name="entrega" id="" class="form-check-input">Tarefa no Teams
-                        <input type="radio" value="Chat" name="entrega" id="" class="form-check-input">Chat no Teams
-                        <input type="radio" value="Formulario" name="entrega" id="" class="form-check-input">Forms
-                        <input type="radio" value="email" name="entrega" id="" class="form-check-input">email
-                        <input type="radio" value="Apresentacao" name="entrega" id="" class="form-check-input">Apresentação
+                        <input type="radio" value="Teams" <%=alterar.entrega=="Teams"?"checked":""%> name="entrega" id="" class="form-check-input">Tarefa no Teams
+                        <input type="radio" value="Chat" <%=alterar.entrega=="Chat"?"checked":""%> name="entrega" id="" class="form-check-input">Chat no Teams
+                        <input type="radio" value="Formulario" <%=alterar.entrega=="Formulario"?"checked":""%> name="entrega" id="" class="form-check-input">Forms
+                        <input type="radio" value="email" <%=alterar.entrega=="email"?"checked":""%> name="entrega" id="" class="form-check-input">email
+                        <input type="radio" value="Apresentacao" <%=alterar.entrega=="Apresentacao"?"checked":""%> name="entrega" id="" class="form-check-input">Apresentação
                         <label for="" class="form-control text-bg-secondary">Orientações:</label>
-                        <textarea name="orientacoes" id="" cols="30" rows="10" class="form-control">
-                        </textarea> 
+                        <textarea  name="orientacoes" id="" cols="30" rows="10" class="form-control"><%=alterar.instrucoes%></textarea> 
                     </div>
                 <div class="input-group">
                     <input type="button" value="Voltar" class="form-control btn btn-info" onclick="history.back()">
-                    <input type="submit" value="Alterar" class="form-control btn btn-secondary">
+                    <input type="submit" value="Alterar" class="form-control btn btn-warning">
                 </div>
                 </form>
             </div>
